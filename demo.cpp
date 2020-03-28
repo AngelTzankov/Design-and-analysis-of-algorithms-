@@ -1,60 +1,55 @@
 #include <cstdio>
 #include <iostream>
 
-using namespace std;
-long long a[100000], b[100000];
-bool check(long long x, long long n) {
-    long long nextStateOffset = b[0];
-    for (long long i = 0; i < n - 1; ++i) {
-        //std::cout << "b[" << i << "]: " << nextStateOffset << std::endl;
-        if(nextStateOffset < x) {
-            nextStateOffset = b[i + 1] - ((a[i + 1] - a[i]) + (x - nextStateOffset));
-        } else if(nextStateOffset > x && ((nextStateOffset - x) - (a[i + 1] - a[i])) > 0) {
-            nextStateOffset =  b[i + 1] + (nextStateOffset - x) - (a[i + 1] - a[i]);
-        } else {
-            nextStateOffset = b[i + 1];
-        }
+int kadane(int* a, int n)
+{
+    int c = 0, m = 0;
+    for(int i=0; i<n; ++i)
+    {
+        if(c + a[i] > 0)
+            c += a[i];
+        else
+            c = 0;
+        if(c > m)
+            m = c;
     }
-
-    //std::cout << "b[n - 1]: " <<  nextStateOffset << std::endl;
-    //here nextStateOffset should equal the remaining alchohol for the last building
-    return nextStateOffset >= x;
+    return m;
 }
 
-long long maxRakia(long long l, long long r, long long n) {
-    long long m;
-    long long lastTrue = 0;
+int main()
+{
+    int n = 5;
 
-    while(l <= r) {
-        m = (l + r)/2;
+    ///problem 1
+    for (int i = 1; i <= n; i++)
+        printf("a");
 
-        if(check(m, n)) {
-            lastTrue = m;
-            l = m + 1;
-        } else {
-            r = m - 1;
-        }
-    }
+    ///problem 2
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
+            printf("a");
 
-    return lastTrue;
-}
+    ///problem 3
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= i; j++)
+            printf("a");
 
-int main() {
-    long long n;
+    ///problem 4
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j += i)
+            printf("a");
 
-    std::scanf("%lld", &n);
+    ///problem 5
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
+            if (i == j)
+                for (int k = 1; k <= n; k++)
+                    printf("a");
 
-    long long r = 0;
-
-    for (long long i = 0; i < n; ++i) {
-        std::scanf("%lld %lld", &a[i], &b[i]);
-        if(b[i] > b[r]) {
-            r = i;
-        }
-    }
-
-    //std::cout << "RESULT: " << check(51, n) << std::endl;
-    long long res = maxRakia(0, b[r], n);
-    std::printf("%lld\n", res);
+    ///problem 6
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j+=i)
+            for (int k = 1; k <= n; k += i)
+                printf("a");
 
 }
