@@ -10,5 +10,5 @@
 
 **Problem 6** Given n and an array with n elements. Find the number of inversions in the array.
 
-**Problem 7** Lower limit problems.
+**Problem 7** Lower bound problems.
 
