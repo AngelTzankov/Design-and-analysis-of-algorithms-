@@ -1,3 +1,4 @@
+```
 isCyclic(G(V, E): Graph)
 1.  foreach u in V
 2.    if color[u] == White
@@ -15,3 +16,4 @@ DFSCheck(G(V,E): graph, v: vertex from V)
 7.     return true
 8. color[v] <- Black
 9. return false
+```
