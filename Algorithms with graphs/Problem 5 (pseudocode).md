@@ -1,3 +1,4 @@
+```
 multiplyMatrix(L: n x n matrix, W: n x n matrix)
 1.  let L` be a new n x n matrix
 2.  for i <- 1 to n
@@ -14,3 +15,4 @@ GetPoweredMatrix(W: n x n matrix, k: integer)
 4.  if k mod 2 == 1
 5.    return multipyMatrix(multipyMatrix(L, L), W)
 6.  return multipyMatrix(L, L)
+```
