@@ -1,5 +1,5 @@
-/// For the sake of simplicity the function returns the length of the shortest cycle instead of the cycle itself
-
+For the sake of simplicity the function returns the length of the shortest cycle instead of the cycle itself
+```
 shortestCycle(G(V, E): Graph)
 1.  shortestCycleLen <- INF
 2.  foreach u in V
@@ -26,4 +26,4 @@ BFS(G(V,E): graph, v: vertex from V)
 13.     else 
 14.       return dist[w] + dist[curV] + 1
 15. return INF
-       
+```
